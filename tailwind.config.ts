@@ -52,16 +52,28 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				}
+				// Custom portfolio colors
+				'space-blue': 'hsl(var(--space-blue))',
+				'electric-cyan': 'hsl(var(--electric-cyan))',
+				'neon-purple': 'hsl(var(--neon-purple))',
+				'cosmic-violet': 'hsl(var(--cosmic-violet))',
+				'deep-space': 'hsl(var(--deep-space))',
+				'stellar-white': 'hsl(var(--stellar-white))'
+			},
+			backgroundImage: {
+				'gradient-cosmic': 'var(--gradient-cosmic)',
+				'gradient-aurora': 'var(--gradient-aurora)',
+				'gradient-nebula': 'var(--gradient-nebula)'
+			},
+			boxShadow: {
+				'glow-cyan': 'var(--glow-cyan)',
+				'glow-purple': 'var(--glow-purple)',
+				'cosmic': 'var(--shadow-cosmic)'
+			},
+			transitionDuration: {
+				'fast': 'var(--animation-fast)',
+				'smooth': 'var(--animation-smooth)',
+				'slow': 'var(--animation-slow)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
