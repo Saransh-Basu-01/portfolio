@@ -1,8 +1,8 @@
-import Navigation from '@/components/Navigation';
-import HeroSection from '@/components/HeroSection';
-import AboutSection from '@/components/AboutSection';
-import ProjectsSection from '@/components/ProjectsSection';
-import ContactSection from '@/components/ContactSection';
+import Navigation from '@/components/Navigation.jsx';
+import HeroSection from '@/components/HeroSection.jsx';
+import AboutSection from '@/components/AboutSection.jsx';
+import ProjectsSection from '@/components/ProjectsSection.jsx';
+import ContactSection from '@/components/ContactSection.jsx';
 
 const Index = () => {
   return (
@@ -31,7 +31,7 @@ const Index = () => {
       <footer className="py-8 px-6 border-t border-border/30 bg-secondary/20">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-muted-foreground">
-            © 2024 Your Name. Built with React, Three.js, and lots of ☕
+            © 2024 Saransha Basu. Built with React, Three.js, and lots of ☕
           </p>
         </div>
       </footer>
