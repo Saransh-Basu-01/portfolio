@@ -1,60 +1,88 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Github, ExternalLink, Star, GitFork } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-// Real projects based on Saransha's profile
-const projects = [
+interface Repository {
+  id: number;
+  name: string;
+  description: string;
+  html_url: string;
+  homepage: string;
+  stargazers_count: number;
+  forks_count: number;
+  language: string;
+  topics: string[];
+}
+
+// Sample projects data - will be replaced with real GitHub data
+const sampleProjects = [
   {
     id: 1,
-    name: "Machine Learning Projects",
-    description: "A collection of machine learning and AI projects including computer vision applications, deep learning models, and data science implementations using TensorFlow and Python.",
-    html_url: "https://github.com/Saransh-Basu-01",
-    homepage: "",
-    stargazers_count: 15,
-    forks_count: 8,
-    language: "Python",
-    topics: ["machine-learning", "tensorflow", "computer-vision", "ai"]
+    name: "3D Portfolio Website",
+    description: "An immersive portfolio website built with React, Three.js, and Framer Motion featuring interactive 3D elements and smooth animations.",
+    html_url: "https://github.com/example/portfolio",
+    homepage: "https://portfolio-demo.com",
+    stargazers_count: 45,
+    forks_count: 12,
+    language: "TypeScript",
+    topics: ["react", "threejs", "framer-motion", "portfolio"]
   },
   {
     id: 2,
-    name: "Full Stack Web Applications",
-    description: "Modern web applications built with React, Django, and Node.js. Features responsive design, REST APIs, and interactive user interfaces with clean, maintainable code.",
-    html_url: "https://github.com/Saransh-Basu-01",
-    homepage: "",
-    stargazers_count: 23,
-    forks_count: 12,
+    name: "Interactive Data Visualization",
+    description: "A dynamic data visualization dashboard using D3.js and React with real-time updates and beautiful animations.",
+    html_url: "https://github.com/example/data-viz",
+    homepage: "https://dataviz-demo.com",
+    stargazers_count: 67,
+    forks_count: 23,
     language: "JavaScript",
-    topics: ["react", "django", "nodejs", "fullstack"]
+    topics: ["d3js", "react", "data-visualization", "dashboard"]
   },
   {
     id: 3,
-    name: "Data Science Analytics",
-    description: "Data analysis and visualization projects using NumPy, Pandas, and Matplotlib. Real-world datasets analysis with statistical modeling and insights generation.",
-    html_url: "https://github.com/Saransh-Basu-01",
-    homepage: "",
-    stargazers_count: 18,
-    forks_count: 6,
-    language: "Python",
-    topics: ["data-science", "pandas", "matplotlib", "analytics"]
+    name: "WebGL Particle System",
+    description: "A mesmerizing particle system built with WebGL and custom shaders, featuring physics-based animations and user interactions.",
+    html_url: "https://github.com/example/particles",
+    homepage: "https://particles-demo.com",
+    stargazers_count: 89,
+    forks_count: 34,
+    language: "TypeScript",
+    topics: ["webgl", "shaders", "particles", "graphics"]
   },
   {
     id: 4,
-    name: "Algorithm Solutions",
-    description: "DSA implementations and LeetCode solutions in C++ and Python. Optimized algorithms for competitive programming and problem-solving practice.",
-    html_url: "https://github.com/Saransh-Basu-01",
-    homepage: "",
-    stargazers_count: 31,
-    forks_count: 14,
-    language: "C++",
-    topics: ["algorithms", "data-structures", "leetcode", "competitive-programming"]
+    name: "E-commerce Platform",
+    description: "A full-featured e-commerce platform with modern UI, payment integration, and responsive design built with Next.js.",
+    html_url: "https://github.com/example/ecommerce",
+    homepage: "https://shop-demo.com",
+    stargazers_count: 123,
+    forks_count: 45,
+    language: "TypeScript",
+    topics: ["nextjs", "ecommerce", "stripe", "tailwindcss"]
   }
 ];
 
 const ProjectsSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [projects, setProjects] = useState<Repository[]>(sampleProjects);
+
+  // TODO: Replace with actual GitHub API call
+  useEffect(() => {
+    // Placeholder for GitHub API integration
+    // const fetchGitHubRepos = async () => {
+    //   try {
+    //     const response = await fetch('https://api.github.com/users/YOUR_USERNAME/repos?sort=updated&per_page=6');
+    //     const data = await response.json();
+    //     setProjects(data);
+    //   } catch (error) {
+    //     console.error('Error fetching GitHub repos:', error);
+    //   }
+    // };
+    // fetchGitHubRepos();
+  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -72,20 +100,15 @@ const ProjectsSection = () => {
     visible: { y: 0, opacity: 1 }
   };
 
-  const getLanguageColor = (language) => {
-    const colors = {
+  const getLanguageColor = (language: string) => {
+    const colors: { [key: string]: string } = {
       TypeScript: 'text-blue-400',
       JavaScript: 'text-yellow-400',
-      Python: 'text-green-400',
-      'C++': 'text-blue-300',
       React: 'text-cyan-400',
+      Python: 'text-green-400',
       default: 'text-gray-400'
     };
     return colors[language] || colors.default;
-  };
-
-  const handleGitHubClick = () => {
-    window.open('https://github.com/Saransh-Basu-01', '_blank');
   };
 
   return (
@@ -122,7 +145,7 @@ const ProjectsSection = () => {
         >
           <motion.h2 
             variants={itemVariants}
-            className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-cosmic bg-clip-text text-transparent"
+            className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent"
           >
             Featured Projects
           </motion.h2>
@@ -130,8 +153,8 @@ const ProjectsSection = () => {
             variants={itemVariants}
             className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
           >
-            A showcase of my passion for Machine Learning, AI, and Full Stack Development. 
-            Each project represents my journey in building intelligent solutions and exploring new technologies.
+            A collection of projects that showcase my passion for creating innovative web experiences 
+            and pushing the boundaries of frontend development.
           </motion.p>
         </motion.div>
 
@@ -141,7 +164,7 @@ const ProjectsSection = () => {
           animate={isInView ? "visible" : "hidden"}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"
         >
-          {projects.map((project, index) => (
+          {projects.slice(0, 4).map((project, index) => (
             <motion.div
               key={project.id}
               variants={itemVariants}
@@ -230,7 +253,6 @@ const ProjectsSection = () => {
             variant="outline"
             size="lg"
             className="border-primary text-primary hover:bg-primary/10 px-8 py-4"
-            onClick={handleGitHubClick}
           >
             <Github className="mr-2 h-5 w-5" />
             View All Projects on GitHub
