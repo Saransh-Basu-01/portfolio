@@ -61,25 +61,25 @@ const ContactSection = () => {
     {
       icon: Mail,
       title: 'Email',
-      content: 'hello@yourname.dev',
-      href: 'mailto:hello@yourname.dev'
+      content: 'saranshbasu@gmail.com',
+      href: 'mailto:saranshbasu@gmail.com'
     },
     {
       icon: Github,
       title: 'GitHub',
-      content: '@yourusername',
-      href: 'https://github.com/yourusername'
+      content: 'Saransh-Basu-01',
+      href: 'https://github.com/Saransh-Basu-01'
     },
     {
       icon: Linkedin,
       title: 'LinkedIn',
-      content: 'Your Name',
-      href: 'https://linkedin.com/in/yourprofile'
+      content: 'Saransh Basu',
+      href: 'https://www.linkedin.com/in/saransh-basu-86a4152b5/'
     },
     {
       icon: MapPin,
       title: 'Location',
-      content: 'Your City, Country',
+      content: 'Bhaktapur, Nepal',
       href: null
     }
   ];
@@ -123,7 +123,7 @@ const ContactSection = () => {
         >
           <motion.h2 
             variants={itemVariants}
-            className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent"
+            className="text-4xl md:text-6xl font-bold mb-1 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent h-20"
           >
             Let's Create Together
           </motion.h2>
@@ -226,8 +226,7 @@ const ContactSection = () => {
             <motion.div variants={itemVariants} className="space-y-6">
               <h3 className="text-2xl font-bold text-foreground mb-6">Get in Touch</h3>
               <p className="text-muted-foreground leading-relaxed">
-                I'm always open to discussing new opportunities, creative projects, 
-                or just having a chat about the latest in web development and 3D graphics.
+               I’m always open to discussing new opportunities, innovative projects, or simply chatting about the latest trends in AI, machine learning, data science, and full-stack development.
               </p>
             </motion.div>
 
