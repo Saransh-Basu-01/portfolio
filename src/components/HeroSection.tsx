@@ -12,11 +12,11 @@ function FloatingGeometry() {
     <Float speed={1.5} rotationIntensity={0.5} floatIntensity={2}>
       <mesh position={[0, 0, 0]}>
         <octahedronGeometry args={[1, 0]} />
-        <meshStandardMaterial 
-          color="#00ffff" 
-          emissive="#00ffff" 
+        <meshStandardMaterial
+          color="#00ffff"
+          emissive="#00ffff"
           emissiveIntensity={0.3}
-          transparent 
+          transparent
           opacity={0.7}
         />
       </mesh>
@@ -39,8 +39,9 @@ function Scene() {
 
 const HeroSection = () => {
   const [text, setText] = useState('');
-  const fullText = "Creative Frontend Developer";
-  
+  const fullText = "Machine Learning/AI Enthusiast & Full Stack Developer from Nepal";
+  const [name, setFullname] = useState('');
+  const fullname = "Saransha Basu"
   useEffect(() => {
     let index = 0;
     const timer = setInterval(() => {
@@ -50,7 +51,20 @@ const HeroSection = () => {
         clearInterval(timer);
       }
     }, 100);
-    
+
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    let index = 0;
+    const timer = setInterval(() => {
+      setFullname(fullname.slice(0, index + 1));
+      index++;
+      if (index >= fullname.length) {
+        clearInterval(timer);
+      }
+    }, 300);
+
     return () => clearInterval(timer);
   }, []);
 
@@ -73,7 +87,7 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center cosmic-bg overflow-hidden">
       {/* Background Image */}
-      <div 
+      <div
         className="absolute inset-0 opacity-40"
         style={{
           backgroundImage: `url(${heroSpaceBg})`,
@@ -81,7 +95,7 @@ const HeroSection = () => {
           backgroundPosition: 'center',
         }}
       />
-      
+
       {/* 3D Scene */}
       <div className="absolute inset-0">
         <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
@@ -122,7 +136,7 @@ const HeroSection = () => {
       >
         <motion.div variants={itemVariants} className="mb-8">
           <h1 className="hero-text mb-4">
-            Your Name
+            {name}
           </h1>
           <div className="hero-subtitle min-h-[3rem] flex items-center justify-center">
             {text}
@@ -132,18 +146,25 @@ const HeroSection = () => {
 
         <motion.p
           variants={itemVariants}
-          className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed"
+          className="text-lg md:text-xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed"
         >
-          Transforming creative visions into immersive digital experiences with cutting-edge web technologies and 3D artistry.
+          Passionate about exploring the world of AI, Deep Learning, and Data Science.<br />
+          Building intelligent solutions and full-stack applications with ML & AI.
         </motion.p>
 
         <motion.div
           variants={itemVariants}
           className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12"
         >
-          <Button 
-            size="lg" 
+          <Button
+            size="lg"
             className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg font-semibold glow-cyan group"
+            onClick={() => {
+              const section = document.getElementById("projects");
+              if (section) {
+                section.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
           >
             <span className="flex items-center gap-2">
               View My Work
@@ -155,9 +176,9 @@ const HeroSection = () => {
               </motion.span>
             </span>
           </Button>
-          
-          <Button 
-            variant="outline" 
+
+          <Button
+            variant="outline"
             size="lg"
             className="border-primary text-primary hover:bg-primary/10 px-8 py-4 text-lg font-semibold"
           >
@@ -171,9 +192,9 @@ const HeroSection = () => {
           className="flex justify-center space-x-6"
         >
           {[
-            { icon: Github, href: '#', label: 'GitHub' },
-            { icon: Linkedin, href: '#', label: 'LinkedIn' },
-            { icon: Mail, href: '#', label: 'Email' }
+            { icon: Github, href: 'https://github.com/Saransh-Basu-01', label: 'GitHub' },
+            { icon: Linkedin, href: 'https://www.linkedin.com/in/saransh-basu-86a4152b5/', label: 'LinkedIn' },
+            { icon: Mail, href: 'mailto:saranshabasu@gmail.com', label: 'Email' }
           ].map(({ icon: Icon, href, label }) => (
             <motion.a
               key={label}
@@ -181,6 +202,8 @@ const HeroSection = () => {
               className="p-3 rounded-full bg-secondary/30 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all duration-300 group"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
+              target="_blank" // Open in new tab for external links
+              rel="noopener noreferrer"
             >
               <Icon className="h-6 w-6 text-muted-foreground group-hover:text-primary transition-colors" />
             </motion.a>

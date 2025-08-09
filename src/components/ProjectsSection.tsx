@@ -112,7 +112,7 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section ref={ref} className="py-24 px-6 relative overflow-hidden">
+    <section ref={ref} className="py-24 px-6 relative overflow-hidden" id="projects">
       {/* Animated background */}
       <div className="absolute inset-0">
         {[...Array(20)].map((_, i) => (

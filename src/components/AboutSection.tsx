@@ -1,34 +1,35 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Code, Palette, Rocket, Zap } from 'lucide-react';
+import { Code, Database, Brain, Server } from 'lucide-react';
 
 const skills = [
   {
     icon: Code,
     title: 'Frontend Development',
-    description: 'React, TypeScript, Next.js, Tailwind CSS',
+    description: 'React, TypeScript, Next.js, Tailwind CSS, JavaScript',
     color: 'text-primary'
   },
   {
-    icon: Palette,
-    title: '3D & Animation',
-    description: 'Three.js, Spline, Framer Motion, GSAP',
+    icon: Server,
+    title: 'Backend Development',
+    description: 'Next.js, Fastapi, REST APIs, Git, Deployment',
     color: 'text-accent'
   },
   {
-    icon: Rocket,
-    title: 'Performance',
-    description: 'Optimization, PWA, Modern bundlers',
+    icon: Brain,
+    title: 'AI / Machine Learning',
+    description: 'Scikit-learn, PyTorch, TensorFlow, Deep Learning',
     color: 'text-neon-purple'
   },
   {
-    icon: Zap,
-    title: 'Creative Coding',
-    description: 'WebGL, Shaders, Interactive experiences',
+    icon: Database,
+    title: 'Data Science & Analysis',
+    description: 'NumPy, Pandas, Matplotlib, Seaborn',
     color: 'text-cosmic-violet'
   }
 ];
+
 
 const AboutSection = () => {
   const ref = useRef(null);
@@ -72,9 +73,7 @@ const AboutSection = () => {
             variants={itemVariants}
             className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
           >
-            I'm a passionate frontend developer who loves creating immersive digital experiences. 
-            With a background in both design and development, I bridge the gap between beautiful 
-            interfaces and cutting-edge technology.
+         I’m a passionate full-stack developer and AI/ML enthusiast who loves building intelligent, data-driven solutions. With a background in development, data science, and AI/ML, I bridge the gap between user-friendly interfaces, powerful backend systems, and advanced machine learning models creating impactful digital experiences powered by cutting-edge technology.
           </motion.p>
         </motion.div>
 
@@ -88,19 +87,32 @@ const AboutSection = () => {
           >
             <div className="prose prose-invert max-w-none">
               <p className="text-lg text-muted-foreground leading-relaxed">
-                My journey began with a fascination for how technology can bring creative 
-                visions to life. Over the years, I've honed my skills in modern web 
-                technologies, specializing in React, Three.js, and creative coding.
+               My journey began with a fascination for how technology can solve real-world problems through intelligent systems. Over the years, I’ve honed my skills in modern web development and backend technologies, while expanding into data science, machine learning, and AI-powered applications.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                When I'm not coding, you'll find me exploring new design trends, 
-                experimenting with 3D art, or diving deep into the latest web technologies. 
-                I believe in continuous learning and pushing the boundaries of what's possible on the web.
+             When I’m not coding, you’ll find me exploring the latest advancements in AI, machine learning, and data science, or experimenting with new full-stack development tools and frameworks. I believe in continuous learning and pushing the boundaries of what technology can achieve.
               </p>
             </div>
 
             <div className="flex flex-wrap gap-3">
-              {['React', 'TypeScript', 'Three.js', 'Framer Motion', 'Tailwind CSS', 'Next.js', 'Spline', 'WebGL'].map((tech) => (
+              {['JavaScript',
+                'TypeScript',
+                'Python',
+                'React',
+                'Next.js',
+                'Tailwind CSS',
+                'FastAPI',
+                'Git',
+                'PostgreSQL',
+                'MySQL',
+                'MongoDB',
+                'NumPy',
+                'Pandas',
+                'Matplotlib',
+                'Seaborn',
+                'Scikit-learn',
+                'PyTorch',
+                'TensorFlow'].map((tech) => (
                 <motion.span
                   key={tech}
                   className="px-4 py-2 bg-secondary/30 backdrop-blur-sm border border-border/50 rounded-full text-sm font-medium"
