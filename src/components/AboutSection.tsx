@@ -112,7 +112,8 @@ const AboutSection = () => {
                 'Seaborn',
                 'Scikit-learn',
                 'PyTorch',
-                'TensorFlow'].map((tech) => (
+                'TensorFlow',
+              'Deep Learning'].map((tech) => (
                 <motion.span
                   key={tech}
                   className="px-4 py-2 bg-secondary/30 backdrop-blur-sm border border-border/50 rounded-full text-sm font-medium"
