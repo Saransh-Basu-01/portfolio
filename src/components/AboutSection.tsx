@@ -102,6 +102,7 @@ const AboutSection = () => {
                 'Next.js',
                 'Tailwind CSS',
                 'FastAPI',
+                'Flask',
                 'Git',
                 'PostgreSQL',
                 'MySQL',
